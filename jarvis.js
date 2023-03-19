@@ -1983,43 +1983,7 @@ case 'pinterest': {
                 sparrow.sendMessage(m.chat, { image: { url: result }, caption: `${themeemoji} Media Url : `+result }, { quoted: m })
             }
             break
-            case 'waifu': {
-            	m.reply(mess.wait)
-                anufux = await fetchJson(`https://waifu.pics/api/sfw/waifu`)
-                buffer13x = await getBuffer(anufux.url)
-                let buttons = [{buttonId: `waifu`, buttonText: {displayText: 'Next Image'}, type: 1},{buttonId: `animemenu`, buttonText: {displayText: '⬅️Back'}, type: 1}]
-                let buttonMessage = {
-                    image: buffer13x,
-                    caption: `Random Waifu`,
-                    footer: botname,
-                    buttons: buttons,
-                    headerType: 4
-                }
-                sparrow.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
-            break
-	    case 'couplepp': case 'ppcouple': {
-                m.reply(mess.wait)
-                let anucpp = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/main/couple.json')
-                let random = anucpp[Math.floor(Math.random() * anucpp.length)]
-                sparrow.sendMessage(m.chat, { image: { url: random.male }, caption: `Couple Male` }, { quoted: m })
-                sparrow.sendMessage(m.chat, { image: { url: random.female }, caption: `Couple Female` }, { quoted: m })
-            }
-	    break
-            case 'coffee': case 'kopi': {
-            let buttons = [
-                    {buttonId: `coffe`, buttonText: {displayText: 'Next Image'}, type: 1}
-                ]
-                let buttonMessage = {
-                    image: { url: 'https://coffee.alexflipnote.dev/random' },
-                    caption: `☕ Random Coffee`,
-                    footer: botname,
-                    buttons: buttons,
-                    headerType: 4
-                }
-                sparrow.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
-            break
+          
             case 'wallpaper': {
                 if (!text) throw 'Enter Query Title'
 		let { wallpaper } = require('./lib/scraper')
